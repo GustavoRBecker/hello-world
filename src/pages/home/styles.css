@@ -27,6 +27,7 @@ ul {
     height: 370px;
     width: 200px;
     overflow-y: auto;
+    overflow-x: hidden;
     height: 300px;
     padding: 0;
     display: flex;

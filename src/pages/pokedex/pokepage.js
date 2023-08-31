@@ -17,7 +17,7 @@ function Pokepage () {
         if (detalhesPokemon) {
 
             const nomeMaiusculo =
-                detalhesPokemon.name.charAt(0).toUpperCase() + detalhesPokemon.name.slice(1);
+                detalhesPokemon.species.name.charAt(0).toUpperCase() + detalhesPokemon.species.name.slice(1);
 
             return {
                 nome: nomeMaiusculo,

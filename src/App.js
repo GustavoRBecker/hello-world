@@ -5,7 +5,7 @@ import Pokedex from './pages/home';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename= "https://gustavorbecker.github.io/hello-world/">
       <Routes>
         <Route exact path='/' Component={Pokedex}/>
         <Route path='/pokepage/:nomePokemon' Component={Pokepage}/>

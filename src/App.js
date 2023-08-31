@@ -7,8 +7,8 @@ function App() {
   return (
     <BrowserRouter basename= "/hello-world">
       <Routes>
-        <Route exact path='/' element={<Pokedex />}/>
-        <Route path='/pokepage/:nomePokemon' element={<Pokepage />}/>
+        <Route exact path='/hello-world' element={<Pokedex />}/>
+        <Route path='/hello-world/pokepage/:nomePokemon' element={<Pokepage />}/>
       </Routes>
     </BrowserRouter>
   );

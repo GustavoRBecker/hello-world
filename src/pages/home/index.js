@@ -6,7 +6,7 @@ function Pokedex() {
     const [nomesPokemon, setNomesPokemon] = useState([])
     
     useEffect(() => {
-        fetch('https://pokeapi.co/api/v2/pokemon/')
+        fetch('https://pokeapi.co/api/v2/pokemon/?limit=151')
             .then(response => response.json())
             .then(data => setNomesPokemon(data.results))
             .catch(error => console.error('Error fetching data: ', error));

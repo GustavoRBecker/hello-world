@@ -46,7 +46,7 @@ function Pokepage () {
                                 {pokemon.element.map(type => {
                                     return (
                                             <div className={'element-chip ' + type}>
-                                                <img className='poke-elem-img' src={'/types/' + type + '.svg'} alt="" />
+                                                <img className='poke-elem-img' src={process.env.PUBLIC_URL + '/types/' + type + '.svg'} alt="" />
                                                 <span className="type-description">{type}</span>
                                             </div>
                                     )

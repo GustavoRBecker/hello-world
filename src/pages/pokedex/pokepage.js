@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import './styles.css';
 import { Link, useParams } from "react-router-dom";
+import Info from "../../components/infos";
 
 function Pokepage () {
     const { nomePokemon } = useParams();
@@ -52,20 +53,7 @@ function Pokepage () {
                                     )
                                 })}
                             </div>
-                            <div className="description-container">
-                                <div className='description'>
-                                    <span>Pokédex nº</span>
-                                    <span>{pokemon.id}</span>
-                                </div>
-                                <div className='description'>
-                                    <span>Height:</span>
-                                    <span>{pokemon.height}</span>
-                                </div>
-                                <div className='description'>
-                                    <span>Weight:</span>
-                                    <span>{pokemon.weight}</span>
-                                </div>
-                            </div>
+                            <Info pokemon={pokemon} />
                         </>
                     ) : (
                         <div className="loading-container">

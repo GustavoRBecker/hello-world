@@ -1,4 +1,5 @@
 .pokeList-container {
+    margin-top: 100px;
     display: flex;
     justify-content: center;
 }
@@ -83,13 +84,20 @@ ul {
 }
 
 .generation-container {
-    width: inherit;
+    background-color: #000;
+    width: 100%;
     display: flex;
     margin: 20px 0;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 .changer {
-    height: 70px;
-    width: inherit;
+    width: 33%;
+    height: 60px;
+    cursor: pointer;
+}
+
+.ativa {
+    background-color: lightgrey;
+    pointer-events: none;
 }

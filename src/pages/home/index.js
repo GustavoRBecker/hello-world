@@ -2,24 +2,23 @@ import React, { useEffect, useState } from "react";
 import './styles.css';
 import { Link } from "react-router-dom";
 
-function Pokedex() {
-    
-    const offsetGeracoes = {
-        gen1: {min: 0, max: 151},
-        gen2: {min: 151, max: 251},
-        gen3: {min: 251, max: 386}
-    }
-    const [nomesPokemon, setNomesPokemon] = useState([])
-    const [selecionaGeracao, setSelecionaGeracao] = useState(offsetGeracoes.gen1)
+const offsetGeracoes = [
+    {min: 0, max: 151},
+    {min: 151, max: 100},
+    {min: 251, max: 135}
+]
 
-    console.log(selecionaGeracao.min)
+function Pokedex() {
+
+    const [nomesPokemon, setNomesPokemon] = useState([])
+    const [indiceGeracaoSelecionada, setIndiceGeracaoSelecionada] = useState(0)
     
     useEffect(() => {
-        fetch(`https://pokeapi.co/api/v2/pokemon/?offset=${selecionaGeracao.min}&limit=${selecionaGeracao.max}`)
+        fetch(`https://pokeapi.co/api/v2/pokemon/?offset=${offsetGeracoes[indiceGeracaoSelecionada].min}&limit=${offsetGeracoes[indiceGeracaoSelecionada].max}`)
             .then(response => response.json())
             .then(data => setNomesPokemon(data.results))
             .catch(error => console.error('Error fetching data: ', error));
-    }, []);
+    }, [indiceGeracaoSelecionada]);
 
     return (
         <div className="pokeList-container">
@@ -27,11 +26,11 @@ function Pokedex() {
                 <h1>Pokélist</h1>
                 <div className="nameList">
                     <ul>
-                        {selecionaGeracao ? (
+                        {nomesPokemon ? (
                             <>
                                 {nomesPokemon.map((pokemon) => (
                                     <li className="pokeLink" key={pokemon.name}>
-                                        <Link className="pokeLink" to={`/pokepage/${pokemon.name}`}>
+                                        <Link key={pokemon.name} className="pokeLink" to={`/pokepage/${pokemon.name}`}>
                                             {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
                                         </ Link>
                                     </li>
@@ -47,20 +46,20 @@ function Pokedex() {
                 </div>
                 <div className="generation-container">
                     <button
-                        className= {"changer" + selecionaGeracao === 1 ? 'ativa' : ''}
-                        onClick={() => setSelecionaGeracao(offsetGeracoes.gen1)}
+                        className= {"changer " + (indiceGeracaoSelecionada === 0 ? 'ativa' : '')}
+                        onClick={() => setIndiceGeracaoSelecionada(0)}
                     >
                         Gen 1
                     </button>
                     <button
-                        className= {"changer" + selecionaGeracao === 2 ? 'ativa' : ''}
-                        onClick={() => setSelecionaGeracao(offsetGeracoes.gen2)}
+                        className= {"changer " + (indiceGeracaoSelecionada === 1 ? 'ativa' : '')}
+                        onClick={() => setIndiceGeracaoSelecionada(1)}
                     >
                         Gen 2
                     </button>
                     <button
-                        className= {"changer" + selecionaGeracao === 3 ? 'ativa' : ''}
-                        onClick={() => setSelecionaGeracao(offsetGeracoes.gen3)}
+                        className= {"changer " + (indiceGeracaoSelecionada === 2 ? 'ativa' : '')}
+                        onClick={() => setIndiceGeracaoSelecionada(2)}
                     >
                         Gen 3
                     </button>

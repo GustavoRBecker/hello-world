@@ -75,7 +75,7 @@ function Pokepage () {
                     )}
                 </div>
                 <Link id="backLink" to={'/'}>
-                    <button>Go Back</button>
+                    <button id= "returnPokepage">Go Back</button>
                 </Link>
             </div>
         </div>

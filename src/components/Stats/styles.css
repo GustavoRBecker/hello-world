@@ -1,0 +1,36 @@
+.stat-description-container {
+    margin-top: 30px;
+    border-top: #000 5px solid;
+    width: 100%;
+}
+
+.stat-description {
+    font-size: 20px;
+    margin: 20px 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    column-gap: 10px;
+}
+
+.stat-bar {
+    width: 170px;
+    height: 20px;
+    overflow: hidden;
+    background-color: white;
+}
+
+.filled-bar {
+    border-radius: 10px;
+    background-color: red;
+    height: 100%;
+    width: 0;
+    transition: width 2s ease;
+    transition-delay: 0.5s;
+}
+
+.filled-bar.active {
+    width: 100%;
+    transition: width 2s ease;
+    transition-delay: 0.5s;
+  }

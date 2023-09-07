@@ -177,6 +177,23 @@ h1 {
     text-transform: uppercase;
 }
 
+.stats-btn {
+    margin-top: 20px;
+    width: 60px;
+    height: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.on {
+    background-color: #FFDE00;
+}
+
+.off {
+    background-color: gray;
+}
+
 #returnPokepage {
     margin-bottom: 20px;
     height: 50px;

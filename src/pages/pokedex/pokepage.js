@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import './styles.css';
 import { Link, useParams } from "react-router-dom";
-import Info from "../../components/infos";
+import Info from "../../components/Info/infos";
+import PokeStats from "../../components/Stats/stats";
 
 function Pokepage () {
+    const [statsOnOff, setStatsOnOff] = useState(true);
     const { nomePokemon } = useParams();
     const [detalhesPokemon, setDetalhesPokemon] = useState(null);
 
@@ -26,7 +28,13 @@ function Pokepage () {
                 id: detalhesPokemon.id,
                 element: detalhesPokemon.types.map((tipo) => (tipo.type.name)),
                 height: detalhesPokemon.height,
-                weight: detalhesPokemon.weight
+                weight: detalhesPokemon.weight,
+                HP : detalhesPokemon.stats[0].base_stat,
+                ATK : detalhesPokemon.stats[1].base_stat,
+                DEF : detalhesPokemon.stats[2].base_stat,
+                SATK : detalhesPokemon.stats[3].base_stat,
+                SDEF : detalhesPokemon.stats[4].base_stat,
+                SPD : detalhesPokemon.stats[5].base_stat,
             };
         }
         return null;
@@ -53,7 +61,14 @@ function Pokepage () {
                                     )
                                 })}
                             </div>
-                            <Info pokemon={pokemon} />
+                            <button className={"stats-btn " + (statsOnOff ? 'on' : 'off')} onClick={() => setStatsOnOff(!statsOnOff)}>
+                                Stats
+                            </button>
+                            {statsOnOff ? (
+                                <Info pokemon = {pokemon} />
+                            ) : (
+                                <PokeStats pokemon = {pokemon} />
+                            )}
                         </>
                     ) : (
                         <div className="loading-container">

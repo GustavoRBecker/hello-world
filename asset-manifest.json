@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/hello-world/static/css/main.5ec343af.css",
-    "main.js": "/hello-world/static/js/main.974f097c.js",
-    "index.html": "/hello-world/index.html",
-    "main.5ec343af.css.map": "/hello-world/static/css/main.5ec343af.css.map",
-    "main.974f097c.js.map": "/hello-world/static/js/main.974f097c.js.map"
+    "main.css": "/pokelist/static/css/main.80bc55d2.css",
+    "main.js": "/pokelist/static/js/main.a794a896.js",
+    "index.html": "/pokelist/index.html",
+    "main.80bc55d2.css.map": "/pokelist/static/css/main.80bc55d2.css.map",
+    "main.a794a896.js.map": "/pokelist/static/js/main.a794a896.js.map"
   },
   "entrypoints": [
-    "static/css/main.5ec343af.css",
-    "static/js/main.974f097c.js"
+    "static/css/main.80bc55d2.css",
+    "static/js/main.a794a896.js"
   ]
 }

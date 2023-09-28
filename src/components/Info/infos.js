@@ -2,21 +2,23 @@ import React from "react";
 import './styles.css';
 
 function Info ({ pokemon }) {
+    const pokeInformation = [
+        {name: 'Pokédex nº', pokeInfo: pokemon.id},
+        {name: 'Height', pokeInfo: pokemon.height},
+        {name: 'Weight', pokeInfo: pokemon.weight}
+    ]
+
     return (
         <>
             <div className="description-container">
-                <div className='description'>
-                    <span>Pokédex nº</span>
-                    <span>{pokemon.id}</span>
-                </div>
-                <div className='description'>
-                    <span>Height:</span>
-                    <span>{pokemon.height}</span>
-                </div>
-                <div className='description'>
-                    <span>Weight:</span>
-                    <span>{pokemon.weight}</span>
-                </div>
+                {pokeInformation.map(item => {
+                    return (
+                        <div className='description'>
+                            <span>{item.name}</span>
+                            <span>{item.pokeInfo}</span>
+                        </div>
+                    )
+                })}
             </div>
         </>
     )
